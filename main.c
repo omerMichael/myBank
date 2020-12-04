@@ -23,22 +23,39 @@ while (c != 'E')
             case 'O':
          
         printf("Please enter amount for deposit: ");
-        scanf("%lf", &cash);    
+         if(scanf("%lf", &cash) != 1){
+        printf("Failed to read the amount\n");
+        BufferClean();
+        break;
+         }
         openAccount(cash); 
         break;
             case 'B':
            
         printf("Please enter account number: ");
-        scanf("%d", &account);
-                Balance(account); 
-                break;
+        if(scanf("%d", &account) != 1){
+                printf("Failed to read the amount\n");
+        }
+else
+{
+    Balance(account); 
+                
+}
+BufferClean();
+               break;
             
             case 'D':
             printf("Please enter account number: ");
-            scanf(" %d", &account);
+            if (scanf(" %d", &account)!=1)
+            printf("Failed to read the account number");
+            else{
             printf("Please enter the amount to deposit: ");
-            scanf("%lf", &cash);
+            if(scanf("%lf", &cash)!=1)
+            printf("Failed to read the account number");
+            else
             deposit(account,cash); 
+            }
+            BufferClean();
             break;
 
              case 'W':
@@ -46,22 +63,37 @@ while (c != 'E')
             scanf(" %d", &account);
             printf("Please enter the amount to withdrawl: ");
             scanf("%lf", &cash);
-                 withdrawal(account,cash); break;
+                 withdrawal(account,cash);
+                 BufferClean();
+                  break;
              case 'C':
               printf("Please enter account number: ");
             scanf(" %d", &account);
-                 closeAc(account); break;
+                 closeAc(account);
+                 BufferClean();
+                  break;
              case 'I':
                 
                 printf("Please enter the interest rate: ");
                 scanf(" %lf", &interest_rate);
                 Interest(interest_rate); 
+                BufferClean();
                 break;
              case 'P':
-                 print(); break;
+             
+                 print(); 
+                 BufferClean();
+                 break;
             case 'E':
+            closeAll();
             //exit
                 c='E';
+                BufferClean();
+                break;
+
+            default:
+             BufferClean();  //need to ask if delete it
+                printf("Invalid transaction type\n");
         }
     
 }

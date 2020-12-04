@@ -4,6 +4,13 @@ double bank [ACCOUNTS][2] = {0};
 
 
 void openAccount(double amount){
+  
+    if (amount<0)
+    {
+        printf("Invalid amount\n");
+        return;
+    }
+    
     int flag = 0; 
     int i=0;
     while (i<ACCOUNTS && flag==0){
@@ -40,6 +47,9 @@ if (account_number>900&&account_number<951)
 
 // char D deposit
 void deposit(int account_number,double amount){
+if (amount<0)
+printf("Cannot deposit a negative amount \n");
+
 if (account_number>900&&account_number<951){
     int i = account_number-901;
     if (bank[i][1]== 1){
@@ -51,6 +61,9 @@ if (account_number>900&&account_number<951){
            printf("This account is closed\n");
     }
     
+}
+else{
+    printf("Invalid account number \n");
 }
 
 
@@ -111,4 +124,19 @@ for (int i = 0; i < ACCOUNTS; i++)
 
 
 
+}
+
+void closeAll(){
+    for (int i = 0; i < ACCOUNTS; i++)
+{
+    if(bank[i][1] == 1){
+    bank[i][1] = 0;
+}
+}
+}
+void BufferClean()
+{
+	 char clear;
+	 while ((clear = getchar()) != '\n' && clear != EOF);//  Buffer cleanner- clean the buffer. use in the program to clean the buffer
+	 	 	 	 	 	 	 	 	 	 	 	 	 	 //after every input opreation
 }
