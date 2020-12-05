@@ -92,7 +92,7 @@ BufferClean();
                 break;
 
             default:
-             BufferClean();  //need to ask if delete it
+             
                 printf("Invalid transaction type\n");
         }
     
