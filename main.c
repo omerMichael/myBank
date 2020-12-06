@@ -25,7 +25,7 @@ while (c != 'E')
         printf("Please enter amount for deposit: ");
          if(scanf("%lf", &cash) != 1){
         printf("Failed to read the amount\n");
-        BufferClean();
+        
         break;
          }
         openAccount(cash); 
@@ -41,7 +41,7 @@ else
     Balance(account); 
                 
 }
-BufferClean();
+
                break;
             
             case 'D':
@@ -55,7 +55,7 @@ BufferClean();
             else
             deposit(account,cash); 
             }
-            BufferClean();
+            
             break;
 
              case 'W':
@@ -64,31 +64,31 @@ BufferClean();
             printf("Please enter the amount to withdrawl: ");
             scanf("%lf", &cash);
                  withdrawal(account,cash);
-                 BufferClean();
+                 
                   break;
              case 'C':
               printf("Please enter account number: ");
             scanf(" %d", &account);
                  closeAc(account);
-                 BufferClean();
+                
                   break;
              case 'I':
                 
                 printf("Please enter the interest rate: ");
                 scanf(" %lf", &interest_rate);
                 Interest(interest_rate); 
-                BufferClean();
+                
                 break;
              case 'P':
              
                  print(); 
-                 BufferClean();
+                 
                  break;
             case 'E':
             closeAll();
             //exit
                 c='E';
-                BufferClean();
+                
                 break;
 
             default:
